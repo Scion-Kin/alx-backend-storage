@@ -5,5 +5,5 @@ FOR EACH ROW
 BEGIN
     UPDATE items
     SET quantity = quantity - 1
-    WHERE items.name = NEW.item_name
+    WHERE items.name = NEW.item_name;
 END;
