@@ -5,8 +5,10 @@ DELIMITER $$
 CREATE FUNCTION SafeDiv (a INT, b INT)
 RETURNS FLOAT DETERMINISTIC
 BEGIN
-    IF b == 0
-        RETURN 0
+    DECLARE result FLOAT DEFAULT 0;
+
+    IF b != 0 THEN
+        SET result = a / b;
     END IF;
-    RETURN a / b;
+    RETURN result;
 END$$
