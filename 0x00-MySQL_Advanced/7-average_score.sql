@@ -4,20 +4,12 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser$$
 CREATE PROCEDURE ComputeAverageScoreForUser (IN user_id INT)
 BEGIN
-    -- Initialize variables
-    DECLARE total_score INT;
-    DECLARE num_corrections INT;
-    SET total_score = 0;
-    SET num_corrections = 0;
+    DECLARE total_score INT DEFAULT 0;
+    DECLARE num_corrections INT DEFAULT 0;
 
     -- Calculate total score and count of corrections for the user
-    SELECT SUM(score), COUNT(score) INTO total_score, num_corrections FROM corrections WHERE user_id = user_id;
+    SELECT SUM(score), COUNT(score) INTO total_score, num_corrections FROM corrections WHERE corrections.user_id = user_id;
 
-    -- Compute average score and update the user's record
-    IF num_corrections > 0 THEN
-        UPDATE users SET average_score = total_score / num_corrections WHERE id = user_id;
-    ELSE
-        UPDATE users SET average_score = 0 WHERE id = user_id; -- Set average to 0 if no corrections
-    END IF;
+    UPDATE users SET users.average_score = IF(projects_count = 0, 0, total_score / projects_count) WHERE users.id = user_id;
 
 END$$
