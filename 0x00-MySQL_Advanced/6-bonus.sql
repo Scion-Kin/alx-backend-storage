@@ -2,7 +2,7 @@
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS `AddBonus`$$
-CREATE PROCEDURE `AddBonus` (IN user_id, IN project_name, IN score)
+CREATE PROCEDURE `AddBonus` (IN user_id INT, IN project_name VARCHAR(255), IN score INT)
 BEGIN
 
     DECLARE proj_id INT;
