@@ -15,7 +15,7 @@ BEGIN
     END IF;
 
     -- Insert or update the correction for the student
-    INSERT INTO corrections (user_id, proj_id, score) VALUES (user_id, proj_id, score)
+    INSERT INTO corrections (user_id, project_id, score) VALUES (user_id, proj_id, score)
     ON DUPLICATE KEY UPDATE score = score;
 
 END$$
