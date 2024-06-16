@@ -1,1 +1,3 @@
+// creates or switches to a database
+
 use my_db
