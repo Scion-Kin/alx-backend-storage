@@ -25,6 +25,6 @@ if __name__ == "__main__":
     print("{} status check".format(len(list(collection.find({"method": "GET",
                                             "path": "/status"})))))
 
-    print("IPs")
+    print("IPs:")
     for i in ips:
         print('\t{}: {}'.format(i["_id"], i["num"]))
