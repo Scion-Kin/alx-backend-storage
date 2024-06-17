@@ -1,0 +1,3 @@
+// uses regex to find a match for the name starting with "Holberton"
+
+db.school.match({"name": /^Holberton$/})
