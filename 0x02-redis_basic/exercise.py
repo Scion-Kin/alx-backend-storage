@@ -23,7 +23,7 @@ class Cache:
 
         return ref
 
-    def get(self, key, fn: Callable = None) ->\
+    def get(self, key: str, fn: Callable = None) ->\
             Union[str, int, float, bytes]:
 
         ''' Gets a value from the database using a given key '''
