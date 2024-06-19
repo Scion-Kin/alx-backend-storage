@@ -2,14 +2,14 @@
 ''' Defines a class '''
 
 from redis import Redis
-from typing import Union, Callable
+from typing import Union
 from uuid import uuid4
 
 
 class Cache:
     ''' Defines a class that interacts with redis database '''
 
-    def __init__(self) -> None:
+    def __init__(self):
         ''' class instance initialization '''
 
         self._redis = Redis()
@@ -23,9 +23,7 @@ class Cache:
 
         return ref
 
-    def get(self, key: str, fn: Callable = None) ->\
-            Union[str, int, float, bytes]:
-
+    def get(self, key, fn):
         ''' Gets a value from the database using a given key '''
 
         return fn(self._redis.get(key)) if fn else self._redis.get(key)
