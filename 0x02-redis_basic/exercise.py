@@ -13,7 +13,7 @@ class Cache:
         ''' class instance initialization '''
 
         self._redis = Redis()
-        self._redis.flushdb()
+        self._redis.flushdb(True)
 
     def store(self, data: Union[str, bytes, int, list]) -> str:
         ''' stores data and returns the reference id '''
