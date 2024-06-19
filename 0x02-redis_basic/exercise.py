@@ -15,7 +15,7 @@ class Cache:
         self._redis = Redis()
         self._redis.flushdb(True)
 
-    def store(self, data: Union[str, bytes, int, list]) -> str:
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         ''' stores data and returns the reference id '''
 
         ref = str(uuid4())
