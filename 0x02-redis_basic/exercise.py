@@ -9,7 +9,7 @@ from typing import Union
 class Cache:
     ''' Defines a class that interacts with redis database '''
 
-    def __init__(self):
+    def __init__(self) -> None:
         ''' class instance initialization '''
 
         self._redis = Redis()
